@@ -14,7 +14,8 @@ export const fetchMovies = async ( search?: string )=>{
             params:{
               api_key: process.env.REACT_APP_MOVIE_API_KEY,
               query: search,
-              language: 'es'
+              language: 'es',
+              sort_by: 'popularity.desc',
             }
           })
           return data;
@@ -23,7 +24,8 @@ export const fetchMovies = async ( search?: string )=>{
         const { data } = await axios.get<DataMovie>(`${BASE_API_URL}/discover/movie`, {
           params:{
             api_key: process.env.REACT_APP_MOVIE_API_KEY,
-            language:'es'
+            language:'es',
+            sort_by: 'popularity.desc',
           }
         })
 
